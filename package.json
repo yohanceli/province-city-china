@@ -3,14 +3,24 @@
   "private": true,
   "description": "An util to query china province, city and district data. 中华人民共和国国家标准 GB/T 2260 行政区划代码。",
   "scripts": {
-    "start": "yarn workspace province-city-china start",
-    "get:town": "yarn workspace province-city-china get:town",
+    "start": "npm run get && npm run hongkong && npm run check && npm run get:town && npm run sql && npm run level  && npm run code && npm run copy",
+    "①": "------------获取<省市区>数据---------------------------",
     "get": "yarn workspace province-city-china get",
-    "create:province:city": "yarn workspace province-city-china create:province:city",
-    "create:level": "yarn workspace province-city-china create:level",
-    "create:data:json:csv": "yarn workspace province-city-china create:data:json:csv",
-    "compress": "yarn workspace province-city-china compress",
-    "copy": "node scripts/index.js"
+    "②": "------------获取香港澳门<区>数据------------------------------",
+    "hongkong": "yarn workspace province-city-china hongkong",
+    "③": "------------检查<区>数据------------------------------",
+    "check": "yarn workspace province-city-china check",
+    "④": "------------获取<街道>数据-----------------------------",
+    "get:town": "yarn workspace province-city-china get:town",
+    "⑤": "------------生成<SQL><省市区(data.json)>数据-----------",
+    "sql": "yarn workspace province-city-china sql",
+    "⑥": "------------重新生成新的<层级>数据----------------------",
+    "level": "yarn workspace province-city-china level",
+    "⑦": "------------获取<长途电话区号>数据------------------------",
+    "code": "yarn workspace province-city-china code",
+    "⑧": "------------数据拷贝到各个<包>中------------------------",
+    "copy": "yarn workspace province-city-china copy",
+    "version": "lerna version --exact --force-publish --no-push --no-git-tag-version"
   },
   "workspaces": [
     "packages/*"
@@ -22,6 +32,6 @@
   "author": "Kenny Wong <wowohoo@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^10.0.0"
+    "lerna": "^5.6.2"
   }
 }

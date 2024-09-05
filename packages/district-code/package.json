@@ -1,0 +1,31 @@
+{
+  "name": "@province-city-china/district-code",
+  "version": "8.5.8",
+  "description": "China long distance telephone area code. 中国地区长途电话区号。",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/province-city-china.git"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "district-code.csv",
+    "district-code.json"
+  ],
+  "keywords": [
+    "province",
+    "china",
+    "cn",
+    "city",
+    "GB",
+    "GB2260",
+    "中国",
+    "中华人民共和国",
+    "中国长途电话区号",
+    "电话区号",
+    "区号",
+    "长途电话区号"
+  ],
+  "author": "Kenny Wong <wowohoo@qq.com>",
+  "license": "MIT"
+}

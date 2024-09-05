@@ -1,18 +1,14 @@
 const path = require('path');
 const fs = require('fs-extra');
 
-const corePath = path.join(process.cwd(), 'packages', 'core');
-
 function copyToDir(source, filename, src = 'dist') {
-  const srcPath = path.join(corePath, src || '', filename);
-  const sourcePath = path.join(process.cwd(), 'packages', source, filename);
+  const srcPath = path.join(process.cwd(), src || '', filename);
+  const sourcePath = path.join(process.cwd(), '..', source, filename);
   fs.copy(srcPath, sourcePath, { overwrite: true });
-  console.log(`copy \x1b[34;1m ${srcPath.replace(process.cwd(), '')}\x1b[0m => \x1b[32;1m${sourcePath.replace(process.cwd(), '')}\x1b[0m file.`);
+  console.log(`copy \x1b[34;1m ${path.relative(process.cwd(), srcPath)}\x1b[0m => \x1b[32;1m${path.relative(process.cwd(), sourcePath)}\x1b[0m file.`);
 }
 
 ;(() => {
-
-  fs.copy(path.join(process.cwd(), 'README.md'), path.join(corePath, 'README.md'), { overwrite: true });
 
   copyToDir('utils', 'index.js', '');
 
@@ -42,4 +38,8 @@ function copyToDir(source, filename, src = 'dist') {
   copyToDir('town', 'town.json');
   copyToDir('town', 'town.csv');
   copyToDir('town', 'town.min.json');
+
+  copyToDir('district-code', 'district-code.json');
+  copyToDir('district-code', 'district-code.csv');
+
 })();
